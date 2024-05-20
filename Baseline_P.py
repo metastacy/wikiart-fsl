@@ -147,8 +147,8 @@ scheduler_milestones = [150]
 scheduler_gamma = 0.1
 tb_logs_dir = Path(".")
 
-train_scheduler = MultiStepLR(cnn.optimizer, milestones=scheduler_milestones, gamma=scheduler_gamma)
 train_optimizer = SGD(cnn.parameters(), lr=0.01, momentum=0.9, weight_decay=1e-5)
+train_scheduler = MultiStepLR(train_optimizer, milestones=scheduler_milestones, gamma=scheduler_gamma)
 
 # set up tensorboard writer to log training and validation loss
 tb_writer = SummaryWriter("tensorboard_logs/Baseline_P")
