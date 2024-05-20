@@ -44,7 +44,7 @@ for param in p[33:]:
 
 # add fully connected classifier 
 cnn.fc = nn.Sequential(
-    nn.Linear(in_features=cnn.fc.in_features, out_features=4096),  # Example new layer
+    nn.Linear(in_features=cnn.fc.in_features, out_features=4096), 
     nn.ReLU(),
     nn.Dropout(0.5),
     nn.Linear(in_features=4096, out_features=4096),  
