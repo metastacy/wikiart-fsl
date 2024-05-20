@@ -43,8 +43,6 @@ for param in p[33:]:
     param.requires_grad = False
 
 # add fully connected classifier 
-# out_features is set to 5 because the FSL sampler re-labels all images 
-# according to n-way (this case, 5-way)
 cnn.fc = nn.Sequential(
     nn.Linear(in_features=cnn.fc.in_features, out_features=4096),  # Example new layer
     nn.ReLU(),
@@ -52,7 +50,7 @@ cnn.fc = nn.Sequential(
     nn.Linear(in_features=4096, out_features=4096),  
     nn.ReLU(),
     nn.Dropout(0.5),
-    nn.Linear(in_features=4096, out_features=5), 
+    nn.Linear(in_features=4096, out_features=985), 
 )
 
 cnn.to(DEVICE)
