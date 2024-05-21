@@ -168,7 +168,8 @@ def training_epoch(model, data_loader, optimizer, epoch):
             tqdm_train.set_postfix(loss=mean(all_loss))
     return mean(all_loss)
 
-# modified evaluation functions for tracking validation loss
+# modified evaluation function for tracking validation loss 
+# obtained EasyFSL (Bennequin, n.d.) 
 def evaluate_on_one_task(
     model: FewShotClassifier,
     support_images: Tensor,
@@ -184,6 +185,8 @@ def evaluate_on_one_task(
     )
     return number_of_correct_predictions, len(query_labels), loss
 
+# modified evaluation function for tracking validation loss 
+# obtained EasyFSL (Bennequin, n.d.) 
 def evaluate(
     model: FewShotClassifier,
     data_loader: DataLoader,
