@@ -111,12 +111,16 @@ class Reptile:
 
         return mean(self.all_loss)
 
+    # modified evaluation function for tracking validation loss
+    # obtained EasyFSL (Bennequin, n.d.) 
     def evaluate_one_task(self, x_query, y_query):
         y_pred = self.model(x_query)
         loss = LOSS_FUNCTION(y_pred, y_query)
         pred = y_pred.data.max(1, keepdim=True)[1]
         return pred.eq(y_query.data.view_as(pred)).sum().item(), len(y_query), loss
-    
+
+    # modified evaluation function for tracking validation loss
+    # obtained EasyFSL (Bennequin, n.d.) 
     def evaluate(self, dataloader, tqdm_prefix):
         total_predictions = 0
         correct_predictions = 0
